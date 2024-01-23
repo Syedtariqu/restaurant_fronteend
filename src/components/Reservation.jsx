@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import axios from "axios";
+// import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -16,18 +16,18 @@ const Reservation = () => {
 
   const handleReservation = async (e) => {
     e.preventDefault();
-    try {
-      const { data } = await axios.post(
-        "http://localhost:4000/api/v1/reservation/send",
-        { firstName, lastName, email, phone, date, time },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
-      toast.success(data.message);
+    // try {
+    //   const { data } = await axios.post(
+    //     "http://localhost:4000/api/v1/reservation/send",
+    //     { firstName, lastName, email, phone, date, time },
+    //     {
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       withCredentials: true,
+    //     }
+    //   );
+      toast.success("Reservation Successful");
       setFirstName("");
       setLastName("");
       setPhone(0);
@@ -35,10 +35,11 @@ const Reservation = () => {
       setTime("");
       setDate("");
       navigate("/success");
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  };
+    } 
+    // catch (error) {
+    //   toast.error(error.response.data.message);
+    // }
+  // };
 
   return (
     <section className="reservation" id="reservation">
